@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqa-HG-rqO">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Share" id="99h-wB-HOM">
+                                        <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="shareButtonTapped:" destination="BYZ-38-t0r" id="PRg-ak-mcZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pos-Da-kqD">
+                                <rect key="frame" x="202" y="69" width="197" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_text.png" translatesAutoresizingMaskIntoConstraints="NO" id="f8E-5I-Hoz">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mam" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWp-VY-gzl">
+                                        <rect key="frame" x="97" y="0.0" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="X6n-Gu-p2Q"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="58C-6z-DdY"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="i9r-Ew-gUp">
+                                <rect key="frame" x="50" y="107" width="500" height="13"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jqa-HG-rqO" secondAttribute="trailing" id="7IU-oR-yuJ"/>
+                            <constraint firstItem="i9r-Ew-gUp" firstAttribute="top" secondItem="f8E-5I-Hoz" secondAttribute="bottom" constant="8" id="BIJ-IS-V1x"/>
+                            <constraint firstItem="pos-Da-kqD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EcM-or-jLz"/>
+                            <constraint firstItem="Jqa-HG-rqO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FGO-9T-tis"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jqa-HG-rqO" secondAttribute="trailing" id="Fwk-Kf-jDw"/>
+                            <constraint firstItem="i9r-Ew-gUp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="WeQ-dW-yeJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i9r-Ew-gUp" secondAttribute="trailing" constant="30" id="gTx-D1-k2j"/>
+                            <constraint firstItem="pos-Da-kqD" firstAttribute="top" secondItem="Jqa-HG-rqO" secondAttribute="bottom" constant="5" id="wXz-KF-8Hu"/>
+                            <constraint firstItem="Jqa-HG-rqO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zZr-f7-Rl0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fwk-Kf-jDw"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="shareButton" destination="99h-wB-HOM" id="4Sd-ba-ypG"/>
+                        <outlet property="textField" destination="AWp-VY-gzl" id="8Gl-yf-lfF"/>
+                        <outlet property="toolbar" destination="Jqa-HG-rqO" id="dyF-0C-zbP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="310"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="divider_bar.png" width="697" height="13"/>
+        <image name="search_text.png" width="97" height="25"/>
+    </resources>
 </document>
