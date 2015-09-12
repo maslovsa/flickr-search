@@ -50,6 +50,56 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="i9r-Ew-gUp">
                                 <rect key="frame" x="50" y="107" width="500" height="13"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V2k-KI-M9W">
+                                <rect key="frame" x="20" y="120" width="560" height="480"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7ZX-Gi-l1p">
+                                    <size key="itemSize" width="300" height="300"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrCell" id="yz0-qW-0IU" customClass="FlickrPhotoCell">
+                                        <rect key="frame" x="130" y="0.0" width="300" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushpin.png" translatesAutoresizingMaskIntoConstraints="NO" id="5iT-cO-IGE">
+                                                    <rect key="frame" x="139" y="0.0" width="22" height="31"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pz1-kU-TuI">
+                                                    <rect key="frame" x="10" y="18" width="280" height="272"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="5iT-cO-IGE" firstAttribute="top" secondItem="yz0-qW-0IU" secondAttribute="top" id="2Ta-rO-iZj"/>
+                                            <constraint firstItem="5iT-cO-IGE" firstAttribute="centerX" secondItem="yz0-qW-0IU" secondAttribute="centerX" id="L65-tu-n5L"/>
+                                            <constraint firstItem="Pz1-kU-TuI" firstAttribute="top" secondItem="yz0-qW-0IU" secondAttribute="topMargin" constant="10" id="axU-QW-OOc"/>
+                                            <constraint firstItem="Pz1-kU-TuI" firstAttribute="leading" secondItem="yz0-qW-0IU" secondAttribute="leading" constant="10" id="bUI-ac-e4h"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pz1-kU-TuI" secondAttribute="trailing" constant="10" id="h9L-2G-hvy"/>
+                                            <constraint firstAttribute="bottom" secondItem="Pz1-kU-TuI" secondAttribute="bottom" constant="10" id="ibH-Gj-Exa"/>
+                                            <constraint firstItem="Pz1-kU-TuI" firstAttribute="top" secondItem="5iT-cO-IGE" secondAttribute="bottom" constant="10" id="lLn-pr-AsE"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="lLn-pr-AsE"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="imageView" destination="Pz1-kU-TuI" id="XWp-gg-TMp"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5g4-fo-kch"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CRP-3l-h6A"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -58,9 +108,13 @@
                             <constraint firstItem="pos-Da-kqD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EcM-or-jLz"/>
                             <constraint firstItem="Jqa-HG-rqO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FGO-9T-tis"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jqa-HG-rqO" secondAttribute="trailing" id="Fwk-Kf-jDw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V2k-KI-M9W" secondAttribute="trailing" id="Nb1-yp-dZC"/>
                             <constraint firstItem="i9r-Ew-gUp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="WeQ-dW-yeJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="i9r-Ew-gUp" secondAttribute="trailing" constant="30" id="gTx-D1-k2j"/>
+                            <constraint firstItem="V2k-KI-M9W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ph8-Un-QYK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="V2k-KI-M9W" secondAttribute="bottom" id="sBQ-O4-e7S"/>
                             <constraint firstItem="pos-Da-kqD" firstAttribute="top" secondItem="Jqa-HG-rqO" secondAttribute="bottom" constant="5" id="wXz-KF-8Hu"/>
+                            <constraint firstItem="V2k-KI-M9W" firstAttribute="top" secondItem="i9r-Ew-gUp" secondAttribute="bottom" id="zRi-MV-i6Y"/>
                             <constraint firstItem="Jqa-HG-rqO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zZr-f7-Rl0"/>
                         </constraints>
                         <variation key="default">
@@ -70,6 +124,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="V2k-KI-M9W" id="zwh-P7-9Na"/>
                         <outlet property="shareButton" destination="99h-wB-HOM" id="4Sd-ba-ypG"/>
                         <outlet property="textField" destination="AWp-VY-gzl" id="8Gl-yf-lfF"/>
                         <outlet property="toolbar" destination="Jqa-HG-rqO" id="dyF-0C-zbP"/>
@@ -82,6 +137,7 @@
     </scenes>
     <resources>
         <image name="divider_bar.png" width="697" height="13"/>
+        <image name="pushpin.png" width="22" height="31"/>
         <image name="search_text.png" width="97" height="25"/>
     </resources>
 </document>
