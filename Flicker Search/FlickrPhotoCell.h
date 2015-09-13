@@ -15,5 +15,5 @@
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) FlickrPhoto *photo;
 
--(void) setPhoto:(FlickrPhoto *)photo;
+- (void)setPhoto:(FlickrPhoto *)photo;
 @end

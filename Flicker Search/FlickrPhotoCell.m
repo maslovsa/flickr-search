@@ -10,11 +10,13 @@
 #import "FlickrPhoto.h"
 
 @implementation FlickrPhotoCell
--(void) setPhoto:(FlickrPhoto *)photo {
-    
-    if(_photo != photo) {
-        _photo = photo;
-    }
-    self.imageView.image = _photo.thumbnail;
+- (void)setPhoto:(FlickrPhoto *)photo {
+
+	if (_photo != photo) {
+		_photo = photo;
+	}
+	
+	self.imageView.image = _photo.thumbnail;
 }
+
 @end
