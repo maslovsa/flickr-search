@@ -91,21 +91,9 @@
 }
 // 3
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    //FlickrPhotoCell *cell = (FlickrPhotoCell*)[cv dequeueReusableCellWithReuseIdentifier:@"FlickrCell" forIndexPath:indexPath];
     FlickrPhotoCell *cell = (FlickrPhotoCell*)[cv dequeueReusableCellWithReuseIdentifier:@"FlickrCell" forIndexPath:indexPath];
     NSString *searchTerm = self.searches[indexPath.section];
-    FlickrPhoto *photo =self.searchResults[searchTerm][indexPath.row];
-//    if ([cell performSelector:@selector(photo:)]) {
-//        cell.photo= photo;
-//    }
-    
-    SEL selectorPhoto = NSSelectorFromString(@"setPhoto:");
-    if ([cell respondsToSelector:selectorPhoto]) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [cell performSelector:selectorPhoto withObject:photo];
-#pragma clang diagnostic pop
-    }
+    cell.photo =self.searchResults[searchTerm][indexPath.row];
     return cell;
 }
 // 4
@@ -133,12 +121,14 @@
 self.searchResults[searchTerm][indexPath.row];
     // 2
     CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
-    retval.height += 35; retval.width += 35; return retval;
+    retval.height += 5;
+    retval.width += 5;
+    return retval;
 }
 
 // 3
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(50, 20, 50, 20);
+    return UIEdgeInsetsMake(20, 20, 20, 20);
 }
 @end
