@@ -44,7 +44,7 @@
     self.searches = [@[] mutableCopy];
     self.searchResults = [@{} mutableCopy];
     self.flickr = [Flickr new];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"FlickrCell"];
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"FlickrCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,7 +92,7 @@
 // 3
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     //FlickrPhotoCell *cell = (FlickrPhotoCell*)[cv dequeueReusableCellWithReuseIdentifier:@"FlickrCell" forIndexPath:indexPath];
-    FlickrPhotoCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"FlickrCell" forIndexPath:indexPath];
+    FlickrPhotoCell *cell = (FlickrPhotoCell*)[cv dequeueReusableCellWithReuseIdentifier:@"FlickrCell" forIndexPath:indexPath];
     NSString *searchTerm = self.searches[indexPath.section];
     FlickrPhoto *photo =self.searchResults[searchTerm][indexPath.row];
 //    if ([cell performSelector:@selector(photo:)]) {
@@ -128,8 +128,9 @@
 
 // 1
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *searchTerm = self.searches[indexPath.section]; FlickrPhoto *photo =
-    self.searchResults[searchTerm][indexPath.row];
+    NSString *searchTerm = self.searches[indexPath.section];
+    FlickrPhoto *photo =
+self.searchResults[searchTerm][indexPath.row];
     // 2
     CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
     retval.height += 35; retval.width += 35; return retval;

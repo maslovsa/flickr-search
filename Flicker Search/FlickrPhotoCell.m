@@ -1,4 +1,4 @@
-//
+
 //  FlickrPhotoCell.m
 //  Flicker Search
 //
